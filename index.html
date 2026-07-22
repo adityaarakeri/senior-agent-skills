@@ -334,6 +334,15 @@
 
   footer{ margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
   footer p{ font-family:var(--f-mono); font-size:.74rem; color:var(--faint); margin:0; }
+  .social-links{ display:flex; align-items:center; gap:.5rem; }
+  .social-link{
+    width:36px; height:36px; border:1px solid var(--line); border-radius:var(--radius-sm);
+    display:inline-flex; align-items:center; justify-content:center; color:var(--muted);
+    background:var(--surface); transition:color .16s ease, border-color .16s ease, background .16s ease;
+  }
+  .social-link svg{ width:18px; height:18px; fill:currentColor; }
+  .social-link:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  @media (hover:hover){ .social-link:hover{ color:var(--accent); border-color:var(--accent); text-decoration:none; } }
 
   /* ---------- desktop ---------- */
   @media (min-width:880px){
@@ -662,7 +671,14 @@
 
         <footer>
           <p>senior-agent-skills · 8 skills · 5 harnesses</p>
-          <p>SKILL.md, everywhere</p>
+          <div class="social-links" aria-label="Social links">
+            <a class="social-link" href="https://www.linkedin.com/in/adityaarakeri/" target="_blank" rel="noopener noreferrer" aria-label="Aditya Arakeri on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.04H3.54V8.98H7.1v11.47Z"/></svg>
+            </a>
+            <a class="social-link" href="https://github.com/adityaarakeri/senior-agent-skills" target="_blank" rel="noopener noreferrer" aria-label="senior-agent-skills on GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.39.97.1-.75.4-1.27.74-1.56-2.57-.29-5.27-1.29-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.12c.98 0 1.94.13 2.86.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.07.79 2.15v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
+            </a>
+          </div>
         </footer>
       </section>
 
