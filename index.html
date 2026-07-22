@@ -186,7 +186,11 @@
   /* hero */
   .kicker{
     font-family:var(--f-mono); font-size:.72rem; letter-spacing:.12em;
-    text-transform:uppercase; color:var(--accent); margin:0 0 1rem;
+    text-transform:uppercase; color:var(--accent); margin:0;
+  }
+  .hero-top{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:1rem; flex-wrap:wrap; margin:0 0 1rem;
   }
   h1{
     font-family:var(--f-display); font-weight:600;
@@ -205,6 +209,14 @@
     padding:.28rem .55rem; color:var(--muted); background:var(--surface);
   }
   .spec b{ color:var(--accent); font-weight:600; }
+
+  .feature-card{
+    max-width:25rem; margin:0 auto 3.25rem;
+    background:var(--code-bg); border:1px solid var(--line);
+    border-radius:var(--radius); overflow:hidden;
+    box-shadow:0 18px 50px rgba(20,20,19,.12);
+  }
+  .feature-card img{ display:block; width:100%; height:auto; }
 
   /* sections */
   section{ margin:0 0 3.75rem; scroll-margin-top:74px; }
@@ -430,12 +442,22 @@
   <main>
     <div class="col">
 
-      <p class="kicker">Agent skills · showcase and setup</p>
+      <div class="hero-top">
+        <p class="kicker">Agent skills · showcase and setup</p>
+        <nav class="social-links" aria-label="Social links">
+          <a class="social-link" href="https://www.linkedin.com/in/adityaarakeri/" target="_blank" rel="noopener noreferrer" aria-label="Aditya Arakeri on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.04H3.54V8.98H7.1v11.47Z"/></svg>
+          </a>
+          <a class="social-link" href="https://github.com/adityaarakeri/senior-agent-skills" target="_blank" rel="noopener noreferrer" aria-label="senior-agent-skills on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.39.97.1-.75.4-1.27.74-1.56-2.57-.29-5.27-1.29-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.12c.98 0 1.94.13 2.86.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.07.79 2.15v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
+          </a>
+        </nav>
+      </div>
       <h1>Make a coding agent behave like a careful senior engineer.</h1>
-      <p class="lede">Eight portable playbooks that cover the whole loop, from understanding a repo to committing the diff. One <code>SKILL.md</code> format, working identically across Claude Code, Codex CLI, Google Antigravity, OpenCode, and GitHub Copilot.</p>
+      <p class="lede">Eight portable playbooks that cover the whole loop, from understanding a repo to committing the diff. One <code>SKILL.md</code> format, working identically across Claude Code, Codex CLI, Google Antigravity, OpenCode, GitHub Copilot, and Cursor.</p>
       <div class="spec">
         <span><b>8</b> skills</span>
-        <span><b>5</b> harnesses</span>
+        <span><b>6</b> harnesses</span>
         <span><b>1</b> shared format</span>
         <span><b>0</b> dependencies</span>
       </div>
@@ -443,8 +465,8 @@
       <!-- 1 · INSTALL -->
       <section id="install">
         <div class="sec-head"><span class="sec-n">01</span><h2>Install once, inherit everywhere</h2></div>
-        <p class="sec-sub">The installer symlinks each skill into every harness's directory, so you edit one canonical copy and all five pick it up. Restart your agent afterward so it rescans.</p>
-        <pre><code>git clone &lt;this-repo&gt; &amp;&amp; cd senior-agent-skills
+        <p class="sec-sub">The installer symlinks each skill into every harness's directory, so you edit one canonical copy and all six pick it up. Restart your agent afterward so it rescans.</p>
+        <pre><code>git clone git@github.com:adityaarakeri/senior-agent-skills.git; cd senior-agent-skills
 ./install.sh</code></pre>
         <div class="modes">
           <div>
@@ -537,6 +559,7 @@
             <button class="tab" role="tab" id="tab-gemini" aria-controls="panel-gemini" aria-selected="false" tabindex="-1" data-path="~/.gemini/config/skills/&lt;name&gt;/SKILL.md"><span class="badge">AG</span> Antigravity</button>
             <button class="tab" role="tab" id="tab-opencode" aria-controls="panel-opencode" aria-selected="false" tabindex="-1" data-path=".claude/skills/&lt;name&gt;/SKILL.md"><span class="badge">OC</span> OpenCode</button>
             <button class="tab" role="tab" id="tab-copilot" aria-controls="panel-copilot" aria-selected="false" tabindex="-1" data-path=".github/skills/&lt;name&gt;/SKILL.md"><span class="badge">GH</span> Copilot</button>
+            <button class="tab" role="tab" id="tab-cursor" aria-controls="panel-cursor" aria-selected="false" tabindex="-1" data-path="~/.cursor/skills/&lt;name&gt;/SKILL.md"><span class="badge">CU</span> Cursor</button>
             <span class="tab-underline" id="underline"></span>
           </div>
         </div>
@@ -568,6 +591,11 @@
           <div class="row"><h3>Trigger</h3><p>Description matching at session startup, across the coding agent, Copilot CLI, and VS Code agent mode. The most specific description wins when several could apply.</p></div>
           <div class="row"><h3>Verify</h3><p class="muted">Type <code>/skills</code> in the VS Code Chat panel. Copilot reads only <code>name</code> and <code>description</code> from frontmatter, which this pack respects.</p></div>
         </div>
+        <div class="panel" id="panel-cursor" role="tabpanel" aria-labelledby="tab-cursor" hidden>
+          <div class="row"><h3>Install</h3><p>Project skills live in <code>.cursor/skills/</code> or the shared <code>.agents/skills/</code> path. The installer also targets <code>~/.cursor/skills/</code> for Cursor builds with personal-skill support.</p></div>
+          <div class="row"><h3>Trigger</h3><p>Cursor discovers skills from their descriptions and loads the full instructions when the task matches. Name a skill directly when you want to force an explicit workflow.</p></div>
+          <div class="row"><h3>Verify</h3><p class="muted">Start a fresh agent session after installation, then ask which skills are available and confirm all eight appear.</p></div>
+        </div>
       </section>
 
       <!-- 4 · MODEL -->
@@ -576,7 +604,7 @@
         <p class="sec-sub">A common question: do the skills pick the model? They do not, on purpose. Here is how the layers divide, and what to set for the best results.</p>
 
         <div class="principle">
-          <p><b>The harness owns model and effort. The skill inherits it.</b> No SKILL.md names a model or sets a reasoning budget, so the same file runs identically on all five harnesses. A skill is instructions handed to whatever engine is already running, the way a recipe cannot choose your oven. Set model and effort once at the harness level and every skill picks it up.</p>
+          <p><b>The harness owns model and effort. The skill inherits it.</b> No SKILL.md names a model or sets a reasoning budget, so the same file runs identically on all six harnesses. A skill is instructions handed to whatever engine is already running, the way a recipe cannot choose your oven. Set model and effort once at the harness level and every skill picks it up.</p>
         </div>
 
         <p class="sec-sub" style="margin-bottom:1rem;">That said, the skills split cleanly into two kinds of work, and matching effort to the kind is where quality comes from.</p>
@@ -603,6 +631,7 @@
           <div class="r"><span class="h">Antigravity</span><p class="d">Model selected at the session level; the skill runs on whatever is active.</p></div>
           <div class="r"><span class="h">OpenCode</span><p class="d">Provider-agnostic. Model set per session or pinned to a named agent, Claude, GPT, or local.</p></div>
           <div class="r"><span class="h">Copilot</span><p class="d">Session model selection, with auto-routing in newer builds, entirely outside the skill.</p></div>
+          <div class="r"><span class="h">Cursor</span><p class="d">Model selected per agent session; skill instructions run on the active model without choosing one themselves.</p></div>
         </div>
         <p class="sec-sub" style="margin:1.3rem 0 0;">One nuance: some harnesses let a named subagent pin a specific model, and a skill's text can point at such an agent. That is still the harness choosing the model, invoked by name, not the skill reaching down to swap engines. The pack keeps all eight free of that so they stay portable.</p>
       </section>
@@ -670,15 +699,8 @@
         </details>
 
         <footer>
-          <p>senior-agent-skills · 8 skills · 5 harnesses</p>
-          <div class="social-links" aria-label="Social links">
-            <a class="social-link" href="https://www.linkedin.com/in/adityaarakeri/" target="_blank" rel="noopener noreferrer" aria-label="Aditya Arakeri on LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.04H3.54V8.98H7.1v11.47Z"/></svg>
-            </a>
-            <a class="social-link" href="https://github.com/adityaarakeri/senior-agent-skills" target="_blank" rel="noopener noreferrer" aria-label="senior-agent-skills on GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.39.97.1-.75.4-1.27.74-1.56-2.57-.29-5.27-1.29-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.12c.98 0 1.94.13 2.86.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.07.79 2.15v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
-            </a>
-          </div>
+          <p>senior-agent-skills · 8 skills · 6 harnesses</p>
+
         </footer>
       </section>
 
