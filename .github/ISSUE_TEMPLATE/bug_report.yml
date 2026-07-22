@@ -1,0 +1,60 @@
+name: Bug report
+description: Report incorrect, unsafe, or unexpected repository behavior
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. Do not include secrets or private vulnerability details here; follow SECURITY.md for those.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Skill instructions
+        - Installer
+        - Harness documentation
+        - Repository validation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: harness
+    attributes:
+      label: Harness and version
+      description: For example, Codex CLI, Claude Code, or OpenCode and its version.
+      placeholder: Codex CLI 1.2.3
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Provide the smallest task, command, or sequence that reproduces the problem.
+      placeholder: |
+        1. Install with ...
+        2. Start a fresh session
+        3. Ask the agent to ...
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Include relevant output, logs, screenshots, or a minimal repository link after removing sensitive data.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I removed secrets and private information.
+          required: true
+        - label: This is not a private security report.
+          required: true

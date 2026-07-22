@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose a new playbook, rule, integration, or documentation improvement
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What repeated agent failure or contributor problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest change that would solve the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: Trigger and scope
+      description: If this affects a skill, explain when it should run and how it stays distinct from existing skills.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe workarounds or existing skills that almost cover the need.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and skills for this request.
+          required: true
+        - label: This proposal remains portable across coding harnesses, or explains why it cannot.
+          required: true
